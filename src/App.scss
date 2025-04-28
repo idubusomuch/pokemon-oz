@@ -1,0 +1,60 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  width: 100%;
+  max-width: 900px;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  justify-items: center;
+  list-style: none;
+}
+
+.container > div {
+  background-color: white;
+  transition: 0.3s;
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
+  }
+}
+
+.detail-card {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
+  border-radius: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+
+  .flip-img-container {
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    position: relative;
+
+    img {
+      width: 200px;
+      object-fit: cover;
+      margin-bottom: 2em;
+      position: absolute;
+      backface-visibility: hidden;
+    }
+  }
+}

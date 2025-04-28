@@ -26,3 +26,18 @@ export const pokemonSlice = createSlice({
       });
   },
 });
+
+export const favoriteSlice = createSlice({
+  name: 'favorite',
+  initialState: [1, 2, 3],
+  reducers: {
+    // redux에는 immer라는 패키지(불변 객체를 관리하는 기능)를 내장하고 있어서 아래와 같이 참조 자료형을 건드려도 관리해줌
+    addToFavorite(state, action) {
+      state.push(action.payload.pokemonId);
+    },
+    removeFromFavorite(state, action) {
+      const index = state.indexOf(action.payload.pokemonId);
+      if (index !== -1) state.splice(index, 1);
+    },
+  },
+});
